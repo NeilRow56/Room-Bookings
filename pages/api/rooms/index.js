@@ -1,14 +1,11 @@
 import nc from 'next-connect';
-import Room from '../../../models/Room';
-import db from '../../../utils/db';
+import dbConnect from '../../../config/dbConnect';
+import { allRooms } from '../../../controllers/roomControllers';
 
 const handler = nc();
 
-handler.get(async (req, res) => {
-	await db.connect();
-	const rooms = await Room.find({});
-	await db.disconnect();
-	res.send(rooms);
-});
+dbConnect();
+
+handler.get(allRooms);
 
 export default handler;
