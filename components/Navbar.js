@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
+import ClientOnly from './ClientOnly';
 import {
 	Box,
 	Flex,
@@ -60,45 +61,48 @@ export default function Navbar() {
 									<SunIcon />
 								)}
 							</Button>
-
-							<Menu>
-								<MenuButton
-									as={Button}
-									rounded={'full'}
-									variant={'link'}
-									cursor={'pointer'}
-									minW={0}
-								>
-									<Avatar
-										size={'sm'}
-										src={
-											'https://avatars.dicebear.com/api/male/username.svg'
-										}
-									/>
-								</MenuButton>
-								<MenuList alignItems={'center'}>
-									<br />
-									<Center>
+							<ClientOnly>
+								<Menu>
+									<MenuButton
+										as={Button}
+										rounded={'full'}
+										variant={'link'}
+										cursor={'pointer'}
+										minW={0}
+									>
 										<Avatar
-											size={'2xl'}
+											size={'sm'}
 											src={
 												'https://avatars.dicebear.com/api/male/username.svg'
 											}
 										/>
-									</Center>
-									<br />
-									<Center>
-										<p>Username</p>
-									</Center>
-									<br />
-									<MenuDivider />
-									<MenuItem>Your Servers</MenuItem>
-									<MenuItem>Account Settings</MenuItem>
-									<MenuItem>
-										<a href="/api/auth/logout">Logout</a>
-									</MenuItem>
-								</MenuList>
-							</Menu>
+									</MenuButton>
+									<MenuList alignItems={'center'}>
+										<br />
+										<Center>
+											<Avatar
+												size={'2xl'}
+												src={
+													'https://avatars.dicebear.com/api/male/username.svg'
+												}
+											/>
+										</Center>
+										<br />
+										<Center>
+											<p>Username</p>
+										</Center>
+										<br />
+										<MenuDivider />
+										<MenuItem>Your Servers</MenuItem>
+										<MenuItem>Account Settings</MenuItem>
+										<MenuItem>
+											<a href="/api/auth/logout">
+												Logout
+											</a>
+										</MenuItem>
+									</MenuList>
+								</Menu>
+							</ClientOnly>
 						</Stack>
 					</Flex>
 				</Flex>

@@ -78,7 +78,10 @@ export default function Home() {
 											textTransform="uppercase"
 											ml="2"
 										>
-											<NextLink href="#" passHref>
+											<NextLink
+												href={`/room/${room.slug}`}
+												passHref
+											>
 												<LinkOverlay>
 													<Center>{room.name}</Center>
 												</LinkOverlay>
