@@ -7,7 +7,6 @@ const roomSchema = new mongoose.Schema({
 		trim: true,
 		maxLength: [100, 'Room name cannot exceed 100 characters'],
 	},
-	slug: { type: String, required: true, unique: true },
 	pricePerNight: {
 		type: Number,
 		required: [true, 'Please enter room price per night'],
@@ -110,6 +109,4 @@ const roomSchema = new mongoose.Schema({
 	},
 });
 
-const Room = mongoose.models.Room || mongoose.model('Room', roomSchema);
-
-export default Room;
+module.exports = mongoose.models.Room || mongoose.model('Room', roomSchema);
